@@ -55,9 +55,11 @@ fn main() {
 }
 ```
 
-See the examples directory of the repository for more complex examples, including segments (custom, datastore and external) and further configuration.
+See the examples directory of the repository for more complex examples, including segments (custom, datastore and
+external) and further configuration.
 
-This crate still requires the New Relic daemon to be running as per the [documentation for the New Relic C SDK][c-sdk]; be sure to read this first.
+This crate still requires the New Relic daemon to be running as per the [documentation for the New Relic C SDK][c-sdk];
+be sure to read this first.
 
 Functionality
 -------------
@@ -87,9 +89,13 @@ The core functionality from the C SDK is currently implemented. A few extra thin
 Failures
 --------
 
-Currently, creating a transaction using this library returns a `Result<newrelic::Transaction, newrelic::Error>`, making it up to the user to either fail hard, or ignore, when transactions fail to be created.
+Currently, creating a transaction using this library returns a `Result<newrelic::Transaction, newrelic::Error>`, making
+it up to the user to either fail hard, or ignore, when transactions fail to be created.
 
-However, when working with Segments in the library, the failure of the segment is hidden from the user for ergonomic purposes. That is, in the following example, creation of the segment might fail (which will be logged using the `log` crate), but the argument passed to the custom segment closure is still of type `newrelic::Segment`. This makes it much simpler to work with nested segments.
+However, when working with Segments in the library, the failure of the segment is hidden from the user for ergonomic
+purposes. That is, in the following example, creation of the segment might fail (which will be logged using the `log`
+crate), but the argument passed to the custom segment closure is still of type `newrelic::Segment`. This makes it much
+simpler to work with nested segments.
 
 This behaviour may be changed in future, if it proves to be unpopular.
 
@@ -112,17 +118,24 @@ fn main() {
 Async
 --------
 
-The [`Segmented`] extension trait adds the ability to run a future inside of a segment.  The feature `async` is required.
+The [`Segmented`] extension trait adds the ability to run a future inside of a segment. The feature `async` is required.
 
 Distributed Tracing
 --------
 
-[Distributed tracing][nr-distributed-tracing] is available wiith the feature `distributed_tracing`.  Notably, this feature requires the [libc] crate.
+[Distributed tracing][nr-distributed-tracing] is available wiith the feature `distributed_tracing`. Notably, this
+feature requires the [libc] crate.
 
 [c-sdk]: https://docs.newrelic.com/docs/agents/c-sdk/get-started/introduction-c-sdk#architecture
+
 [examples]: https://github.com/sd2k/newrelic/tree/master/examples
+
 [newrelic-sys]: https://crates.io/crates/newrelic-sys
+
 [libc]: https://crates.io/crates/libc
+
 [nr-distributed-tracing]: https://docs.newrelic.com/docs/understand-dependencies/distributed-tracing/get-started/introduction-distributed-tracing
+
 [`Segmented`]: ./trait.Segmented.html
+
 [rocket_newrelic]: https://crates.io/crates/rocket_newrelic
