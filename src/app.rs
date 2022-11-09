@@ -266,6 +266,7 @@ impl Drop for App {
 }
 
 unsafe impl Send for App {}
+
 unsafe impl Sync for App {}
 
 /// The log level of the New Relic SDK.
