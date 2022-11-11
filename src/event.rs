@@ -30,8 +30,8 @@ impl<'a> CustomEvent<'a> {
 
     /// Add an attribute to this custom event.
     pub fn add_attribute<'b, T>(&self, name: &str, attribute: T) -> Result<&Self>
-        where
-            T: Into<Attribute<'b>>,
+    where
+        T: Into<Attribute<'b>>,
     {
         let name = CString::new(name)?;
         let ok = match attribute.into() {

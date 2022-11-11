@@ -136,8 +136,8 @@ impl<'a> Segment<'a> {
     /// });
     /// ```
     pub fn custom_nested<F, V>(&self, name: &str, category: &str, func: F) -> V
-        where
-            F: FnOnce(Segment) -> V,
+    where
+        F: FnOnce(Segment) -> V,
     {
         // We can only create a nested segment if this segment is 'real'
         if let Some(inner) = &self.inner {
@@ -186,8 +186,8 @@ impl<'a> Segment<'a> {
     /// });
     /// ```
     pub fn datastore_nested<F, V>(&self, params: &DatastoreParams, func: F) -> V
-        where
-            F: FnOnce(Segment) -> V,
+    where
+        F: FnOnce(Segment) -> V,
     {
         // We can only create a nested segment if this segment is 'real'
         if let Some(inner) = &self.inner {
@@ -236,8 +236,8 @@ impl<'a> Segment<'a> {
     /// });
     /// ```
     pub fn external_nested<F, V>(&self, params: &ExternalParams, func: F) -> V
-        where
-            F: FnOnce(Segment) -> V,
+    where
+        F: FnOnce(Segment) -> V,
     {
         // We can only create a nested segment if this segment is 'real'
         if let Some(inner) = &self.inner {

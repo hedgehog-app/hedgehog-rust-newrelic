@@ -94,8 +94,8 @@ pub trait Segmented: Sized {
         name: &str,
         category: &str,
     ) -> SegmentedFuture<'a, Self>
-        where
-            T: OptionalTransaction<'a>,
+    where
+        T: OptionalTransaction<'a>,
     {
         SegmentedFuture {
             inner: self,
@@ -141,8 +141,8 @@ pub trait Segmented: Sized {
         to_trans: &'a T,
         params: &segment::DatastoreParams,
     ) -> SegmentedFuture<'a, Self>
-        where
-            T: OptionalTransaction<'a>,
+    where
+        T: OptionalTransaction<'a>,
     {
         SegmentedFuture {
             inner: self,
@@ -188,8 +188,8 @@ pub trait Segmented: Sized {
         to_trans: &'a T,
         params: &segment::ExternalParams,
     ) -> SegmentedFuture<'a, Self>
-        where
-            T: OptionalTransaction<'a>,
+    where
+        T: OptionalTransaction<'a>,
     {
         SegmentedFuture {
             inner: self,
