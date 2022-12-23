@@ -40,6 +40,7 @@ impl<'a> From<i32> for Attribute<'a> {
         Attribute::Int(original)
     }
 }
+
 impl<'a> From<i64> for Attribute<'a> {
     #[allow(unused_variables)]
     #[inline]
@@ -47,6 +48,7 @@ impl<'a> From<i64> for Attribute<'a> {
         Attribute::Long(original)
     }
 }
+
 impl<'a> From<f64> for Attribute<'a> {
     #[allow(unused_variables)]
     #[inline]
@@ -54,6 +56,7 @@ impl<'a> From<f64> for Attribute<'a> {
         Attribute::Float(original)
     }
 }
+
 impl<'a> From<&'a str> for Attribute<'a> {
     #[allow(unused_variables)]
     #[inline]
@@ -61,6 +64,7 @@ impl<'a> From<&'a str> for Attribute<'a> {
         Attribute::String(original)
     }
 }
+
 impl<'a> From<&'a String> for Attribute<'a> {
     #[allow(unused_variables)]
     #[inline]
@@ -437,4 +441,5 @@ impl Drop for Transaction {
 }
 
 unsafe impl Send for Transaction {}
+
 unsafe impl Sync for Transaction {}

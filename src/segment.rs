@@ -13,6 +13,7 @@ struct InnerSegment<'a> {
 }
 
 unsafe impl<'a> Send for InnerSegment<'a> {}
+
 unsafe impl<'a> Sync for InnerSegment<'a> {}
 
 /// A segment within a transaction.
@@ -430,9 +431,9 @@ impl<'a> ExternalParamsBuilder<'a> {
 ///
 /// Create this using `ExternalParamsBuilder`.
 pub struct ExternalParams {
-    uri: *mut libc::c_char,
-    procedure: *mut libc::c_char,
-    library: *mut libc::c_char,
+    uri: *mut std::os::raw::c_char,
+    procedure: *mut std::os::raw::c_char,
+    library: *mut std::os::raw::c_char,
 }
 
 impl ExternalParams {
@@ -457,6 +458,7 @@ impl Drop for ExternalParams {
 }
 
 unsafe impl Send for ExternalParams {}
+
 unsafe impl Sync for ExternalParams {}
 
 /// The datastore type, used when instrumenting a datastore segment.
@@ -490,7 +492,7 @@ pub enum Datastore {
 }
 
 impl Datastore {
-    fn inner(&self) -> *mut libc::c_char {
+    fn inner(&self) -> *mut std::os::raw::c_char {
         let datastore = match self {
             Datastore::Firebird => ffi::NEWRELIC_DATASTORE_FIREBIRD.as_ptr(),
             Datastore::Informix => ffi::NEWRELIC_DATASTORE_INFORMIX.as_ptr(),
@@ -506,7 +508,7 @@ impl Datastore {
             Datastore::Redis => ffi::NEWRELIC_DATASTORE_REDIS.as_ptr(),
             Datastore::Other => ffi::NEWRELIC_DATASTORE_OTHER.as_ptr(),
         };
-        datastore as *mut libc::c_char
+        datastore as *mut std::os::raw::c_char
     }
 }
 
@@ -607,13 +609,13 @@ impl<'a> DatastoreParamsBuilder<'a> {
 ///
 /// Create this using `DatastoreParamsBuilder`.
 pub struct DatastoreParams {
-    product: *mut libc::c_char,
-    collection: *mut libc::c_char,
-    operation: *mut libc::c_char,
-    host: *mut libc::c_char,
-    port_path_or_id: *mut libc::c_char,
-    database_name: *mut libc::c_char,
-    query: *mut libc::c_char,
+    product: *mut std::os::raw::c_char,
+    collection: *mut std::os::raw::c_char,
+    operation: *mut std::os::raw::c_char,
+    host: *mut std::os::raw::c_char,
+    port_path_or_id: *mut std::os::raw::c_char,
+    database_name: *mut std::os::raw::c_char,
+    query: *mut std::os::raw::c_char,
 }
 
 impl DatastoreParams {
