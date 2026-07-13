@@ -12,7 +12,7 @@ for details.
 version = "0.2.2"
 authors = ["Ben Sully <ben@bsull.io>"]
 categories = ["api-bindings"]
-edition = "2018"
+edition = "2021"
 repository = "https://github.com/sd2k/newrelic"
 license = "MIT/Apache-2.0"
 
@@ -26,7 +26,7 @@ libc = { version = "0.2.79", optional = true }
 pin-project = { version = "1.0.0", optional = true }
 
 [dev-dependencies]
-tokio = { version = "1.0.0", features = ["full"] }
+tokio = { version = "1", features = ["full"] }
 
 [features]
 default = []
